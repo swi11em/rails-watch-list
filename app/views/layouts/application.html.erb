@@ -11,6 +11,16 @@
   </head>
 
   <body>
+    <nav class="navbar  navbar-expand-md navbar-expand-lg navbar-light bg-light d-flex justify-content-between fixed-top px-4">
+        <%= link_to lists_path, class: "text-decoration-none" do %>
+          <h2 class="title">Ciné+</h2>
+      <% end %>
+      <div class="d-flex">
+        <%= link_to new_list_path do %>
+          <button class="btn btn-primary">Add list</button>
+      <% end %>
+      </div>
+      </nav>
     <%= yield %>
   </body>
 </html>

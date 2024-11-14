@@ -1,0 +1,32 @@
+
+<div class="container mt-3 p-5">
+    <div class="row">
+        <div class="col-12">
+            <h1>All your List</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <p>All <%= @lists.count %> lists.</p>
+        </div>
+    </div>
+    <div class="row">
+    <% @lists.each do |list| %>
+        <div class="col-md-4">
+            <div class=" card flat-card">
+                <img class="card-img-top" src= "https://plus.unsplash.com/premium_photo-1682125771198-f7cbed7cb868?q=80&w=2920&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+                <div class="flat-card-content px-4">
+                    <div class="card-title">
+                        <h4 class="py-2"><%= list.name %></h4>
+                    </div>
+                </div>
+                <div class="flat-card-actions d-flex justify-content-between p-4">
+                    <%= link_to "More info", list_path(list) %>
+
+                </div>
+            </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
