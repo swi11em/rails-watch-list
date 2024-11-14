@@ -2,6 +2,7 @@ class ListsController < ApplicationController
   before_action :set_list, only: [:show, :edit, :update]
   def index
     @lists = List.all
+    @movies = Movie.all
   end
 
   def show

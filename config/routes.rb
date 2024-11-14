@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'movies/show'
+  get 'movies/index'
   get 'bookmarks/new'
   get 'list/index'
   get 'list/show'
@@ -10,9 +12,12 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
   resources :lists do
-    resources :bookmarks, only: [:new, :create]
+    resources :bookmarks, only: [:new]
   end
-  resources :bookmarks, only: [:destroy]
+  resources :bookmarks, only: [:create, :destroy]
+
+
+  resources :movies, only: [:show, :index]
 
   # Defines the root path route ("/")
   # root "posts#index"

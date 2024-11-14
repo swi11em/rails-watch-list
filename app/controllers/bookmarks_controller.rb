@@ -5,13 +5,15 @@ class BookmarksController < ApplicationController
   end
 
   def create
+     puts "Create action called"
+    @movie = Movie.find(params[:movie_id])
     @list = List.find(params[:list_id])
-    @bookmark = Bookmark.new(bookmark_params.merge(list: @list))
-    @movie = Movie.find(params["bookmark"][:movie_id])
+    @bookmark = Bookmark.new(movie: @movie, list: @list, comment: params[:comment])
+
     if @bookmark.save
-      redirect_to list_path(@list)
+      redirect_to list_path(@list), notice: "Film ajouté à la liste avec succès !"
     else
-      render "lists/show", status: :unprocessable_entity
+      alert("Le commentaire doit contenir au moins 6 caractères.")
     end
   end
 
