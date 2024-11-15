@@ -1,0 +1,30 @@
+<div class="modal fade" id="selectListModal" tabindex="-1" role="dialog" aria-labelledby="selectListModalLabel" aria-hidden="true" data-controller="bookmarks">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="selectListModalLabel">Select a List</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">X</button>
+      </div>
+      <div class="modal-body">
+        <%= form_with url: bookmarks_path, method: :post, data: { turbo: true } do |f| %>
+          <%= f.hidden_field :movie_id, id: "modal_movie_id" %>
+          <div class="mb-3">
+            <label for="list_id">Choose a List</label>
+            <% lists.each do |list| %>
+              <div class="form-check">
+                <%= f.radio_button :list_id, list.id, data: { bookmarks_target: "radio", action: "input->bookmarks#updateSubmitButtonState" }, class: "form-check-input" %>
+                <%= f.label :list_id, list.name, class: "form-check-label" %>
+              </div>
+            <% end %>
+          </div>
+          <div class="mb-3">
+            <%= f.label :comment, "Comment", class: "form-label" %>
+            <%= f.text_area :comment, required: true, class: "form-control", placeholder: "Add a comment...", data: { bookmarks_target: "comment", action: "input->bookmarks#updateSubmitButtonState" } %>
+          </div>
+
+          <%= f.submit "Add to List", class: "btn btn-primary", data: { bookmarks_target: "submitButton" }, disabled: true %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

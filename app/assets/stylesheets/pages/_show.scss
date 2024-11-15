@@ -1,0 +1,100 @@
+.movie-header {
+  position: relative;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60vh;
+  padding: 20px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+.movie-info {
+  position: relative;
+  color: white;
+  z-index: 1;
+  max-width: 60%;
+}
+
+.movie-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.movie-description {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+.movie-actions .btn {
+  margin-right: 1rem;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+.movie-actions .btn-primary {
+  background-color: #e50914;
+  border: none;
+}
+
+.movie-actions .btn-secondary {
+  background-color: #333;
+  border: none;
+}
+
+.movie-thumbnail {
+  z-index: 1;
+  margin-left: 20px;
+  height: 400px;
+  flex-shrink: 0;
+}
+
+.movie-thumbnail img {
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  object-fit: cover;
+}
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+}
+
+.carousel-item {
+  margin-right: 10px;
+}
+
+.movie-poster {
+  width: 150px;
+  height: 225px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.movie-poster:hover {
+  transform: scale(1.05);
+}
+
+.stars .fas {
+  color: #ffc107;
+  margin-right: 6px;
+  font-size: 1.2rem;
+}
+.stars {
+  font-size: 1.0rem;
+}

@@ -1,0 +1,98 @@
+.modal.fade .modal-dialog {
+  transform: translateY(-50px);
+  transition: transform 0.3s ease-out;
+}
+
+.modal.fade.show .modal-dialog {
+  transform: translateY(0);
+}
+
+/* Modal background and text */
+.modal-content {
+  background-color: #1c1c1e; /* Dark background for modal */
+  color: #ffffff;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+}
+
+/* Modal header */
+.modal-header {
+  border-bottom: 1px solid #333333;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.close {
+  color: #ffffff;
+  font-size: 1.3rem;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.close:hover {
+  opacity: 1;
+}
+
+/* Form input and label styling */
+.modal-body label {
+  color: #b0b0b0; /* Light gray for labels */
+  font-weight: 500;
+}
+
+.modal-body .form-label {
+  color: #b0b0b0;
+}
+
+.modal-body .form-control,
+.modal-body .form-select,
+.modal-body input[type="radio"] + label {
+  background-color: #2b2b2b;
+  color: #ffffff;
+  border: 1px solid #444444;
+  border-radius: 5px;
+}
+
+.modal-body .form-control::placeholder {
+  color: #888888; /* Subtle placeholder color */
+}
+
+.modal-body .form-control:focus {
+  background-color: #333333;
+  color: #ffffff;
+  border-color: #e50914; /* Netflix red for focus */
+  box-shadow: 0 0 5px rgba(229, 9, 20, 0.3);
+}
+
+/* Radio button styling */
+.modal-body input[type="radio"] {
+  accent-color: #e50914; /* Red accent color for radio button */
+  margin-right: 8px;
+}
+
+/* Submit button */
+.btn-primary {
+  background-color: #e50914;
+  border: none;
+  font-weight: bold;
+  padding: 10px 20px;
+  transition: background-color 0.2s, opacity 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #d40813;
+  opacity: 0.9;
+}
+
+.btn-primary[disabled] {
+  background-color: #555555;
+  opacity: 0.5;
+}
+
+/* Additional styling for modal body elements */
+.modal-body .mb-3 > div {
+  margin-bottom: 12px; /* Spacing between radio buttons */
+}

@@ -1,34 +1,36 @@
-<div class="map" style="background-image: url('https://plus.unsplash.com/premium_photo-1682125771198-f7cbed7cb868?q=80&w=2920&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); height: 400px; background-size: cover;"></div>
-<div class="container margin-top-negative p-5">
-<h1><%= @list.name %></h1>
-  <div class="row">
-    <div class="col-8">
-      <div class="row">
-    <% @list.bookmarks.each do |bookmark| %>
-        <div class="col-md-4">
-            <div class=" card flat-card">
-                <img class="card-img-top" src= <%= bookmark.movie.poster_url %>>
-                <div class="flat-card-content px-4">
-                    <div class="card-title">
-                        <h4 class="py-2"><%= bookmark.movie.title %></h4>
-                    </div>
-                    <p><%= bookmark.movie.overview %></p>
-                    <p><%= link_to "Remove", bookmark_path(bookmark), class: "ms-3 text-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></p>
-                </div>
-                <div class="flat-card-actions d-flex justify-content-between p-4">
-                </div>
-            </div>
-        </div>
-        <% end %>
+<div class="d-flex">
+  <%= render 'shared/sidebar', lists: @lists %>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1>Retrieve your watchlist</h1>
       </div>
     </div>
 
-
-  <div class="col-4">
-    <div class="flat-form">
-    <h1>Add movie to list</h1>
-    <div class="mt-3">
-
+    <div class="row">
+      <div class="col">
+      </div>
     </div>
+<div class="map" style="background-image: url('https://plus.unsplash.com/premium_photo-1682125771198-f7cbed7cb868?q=80&w=2920&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); height: 400px; background-size: cover;"></div>
+<div class="margin-top-negative p-5">
+<h1><%= @list.name %></h1>
+  <div class="row">
+    <% @list.bookmarks.each do |bookmark| %>
+      <div class="col-md-4 mb-4">
+        <%= link_to movie_path(bookmark.movie) do %>
+          <div class="movie-card position-relative">
+            <img class="card-img-top" src="<%= bookmark.movie.poster_url %>">
+            <div class="flat-card-content">
+              <div class="card-title">
+                <h4><%= bookmark.movie.title %></h4>
+              </div>
+            </div>
+            <div class="flat-card-actions">
+              <%= link_to "Remove", bookmark_path(bookmark), class: "ms-3 text-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>

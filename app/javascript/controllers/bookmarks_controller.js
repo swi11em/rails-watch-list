@@ -15,7 +15,6 @@ export default class extends Controller {
         const hiddenMovieIdField = document.getElementById("modal_movie_id");
         if (hiddenMovieIdField) {
           hiddenMovieIdField.value = movieId;
-          console.log("Movie ID set in modal:", movieId);
         }
       });
     }

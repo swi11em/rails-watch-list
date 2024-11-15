@@ -1,0 +1,46 @@
+<div class="sidebar d-flex flex-column p-3 vh-100">
+
+  <a href="/" class="d-flex align-items-center mb-3 text-decoration-none">
+    <svg class="bi me-2" width="40" height="32">
+      <use xlink:href="#bootstrap" />
+    </svg>
+    <%= link_to lists_path, class: "text-decoration-none" do %>
+      <%= image_tag "logo.png", alt: "tadam", width: 150 %>
+    <% end %>
+  </a>
+
+  <hr />
+
+
+  <ul class="nav flex-column mb-auto">
+    <li class="nav-item">
+      <%= link_to new_list_path do %>
+        <button class="btn btn-primary">Create new list</button>
+      <% end %>
+    </li>
+    <% lists.each do |list| %>
+      <li class="nav-item">
+        <%= link_to list_path(list), class: "nav-link text-white" do %>
+          <%= list.name %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+
+  <hr />
+
+
+  <div class="dropdown">
+    <a href="#" class="dropdown-toggle text-white" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+      <img src="https://github.com/mdo.png" alt="profile" class="me-2">
+      <strong>mdo</strong>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+      <li><a class="dropdown-item" href="#">New project...</a></li>
+      <li><a class="dropdown-item" href="#">Settings</a></li>
+      <li><a class="dropdown-item" href="#">Profile</a></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item" href="#">Sign out</a></li>
+    </ul>
+  </div>
+</div>

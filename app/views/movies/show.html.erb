@@ -1,2 +1,55 @@
-<h1>Movies#show</h1>
-<p>Find me in app/views/movies/show.html.erb</p>
+<div class="d-flex ">
+  <%= render 'shared/sidebar', lists: @lists %>
+  <div class="container">
+    <div class="movie-header" style="background-image: url('<%= @movie.poster_url %>'); background-size: cover; height: 60vh; background-position: center;">
+    <div class="overlay"></div>
+      <div class="movie-info">
+          <%= link_to request.referer || lists_path, class: "btn-back" do %>
+            <i class="fas fa-arrow-left "></i>
+          <% end %>
+          <h1 class="movie-title"><%= @movie.title %></h1>
+          <div class="d-flex stars">
+            <i class="fas fa-star"></i>
+            <p><%= @movie.rating.floor(1) %> / 10</p>
+          </div>
+          <p class="movie-description"><%= @movie.overview %></p>
+          <div class="movie-actions">
+              <%= link_to "#",
+                  class: "btn btn-secondary",
+                  data: {
+                    bs_toggle: "modal",
+                    bs_target: "#selectListModal",
+                    movie_id: @movie.id
+                  } do %>
+                <div>Add to My List</div>
+              <% end %>
+              <%= link_to "Play", "#", class: "btn btn-primary" %>
+          </div>
+      </div>
+      <div class="movie-thumbnail">
+        <img src="<%= @movie.poster_url %>" alt="<%= @movie.title %>">
+      </div>
+  </div>
+  <div class="related-movies mt-5">
+    <h2>Related Movies</h2>
+    <div class="carousel gap-4">
+      <% @related_movies.each do |movie| %>
+          <div class="col-md-3">
+          <%= link_to movie_path(movie) do %>
+              <div class="movie-card position-relative">
+                  <img class="card-img-top" src= <%= movie.poster_url %>>
+                  <div class="flat-card-content px-4">
+                      <div class="card-title">
+                          <h4 class="py-2"><%= movie.title %></h4>
+                      </div>
+                </div>
+              </div>
+              <% end %>
+            </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+</div>
+<%= render 'shared/add_to_list_modal', lists: @lists %>
