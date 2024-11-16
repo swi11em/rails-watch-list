@@ -7,37 +7,51 @@
   transform: translateY(0);
 }
 
-/* Modal background and text */
+/* Modal background and overall styling */
 .modal-content {
-  background-color: #1c1c1e; /* Dark background for modal */
+  background-color: #1c1c1e; /* Dark background for the modal */
   color: #ffffff;
   border-radius: 10px;
   border: none;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+  overflow: hidden; /* Prevent content overflow */
 }
 
-/* Modal header */
+/* Modal header styles */
 .modal-header {
   border-bottom: 1px solid #333333;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .modal-title {
   font-size: 1.5rem;
   font-weight: bold;
+  color: #ffffff;
 }
 
 .close {
+  background-color: transparent;
   color: #ffffff;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
   opacity: 0.7;
-  transition: opacity 0.2s;
+  transition: opacity 0.3s;
 }
 
 .close:hover {
   opacity: 1;
 }
 
-/* Form input and label styling */
+/* Modal body styles */
+.modal-body {
+  padding: 20px;
+}
+
 .modal-body label {
   color: #b0b0b0; /* Light gray for labels */
   font-weight: 500;
@@ -48,29 +62,35 @@
 }
 
 .modal-body .form-control,
-.modal-body .form-select,
-.modal-body input[type="radio"] + label {
+.modal-body .form-select {
   background-color: #2b2b2b;
   color: #ffffff;
   border: 1px solid #444444;
   border-radius: 5px;
+  margin-bottom: 15px;
 }
 
 .modal-body .form-control::placeholder {
-  color: #888888; /* Subtle placeholder color */
+  color: #888888;
 }
 
 .modal-body .form-control:focus {
   background-color: #333333;
+  border-color: #e50914; /* Netflix red */
   color: #ffffff;
-  border-color: #e50914; /* Netflix red for focus */
   box-shadow: 0 0 5px rgba(229, 9, 20, 0.3);
 }
 
-/* Radio button styling */
+/* Radio buttons styling */
 .modal-body input[type="radio"] {
-  accent-color: #e50914; /* Red accent color for radio button */
-  margin-right: 8px;
+  accent-color: #e50914; /* Netflix red */
+  margin-right: 10px;
+}
+
+.modal-body input[type="radio"] + label {
+  margin-left: 5px;
+  color: #ffffff;
+  font-size: 1rem;
 }
 
 /* Submit button */
@@ -79,12 +99,13 @@
   border: none;
   font-weight: bold;
   padding: 10px 20px;
-  transition: background-color 0.2s, opacity 0.2s;
+  transition: background-color 0.3s, opacity 0.2s;
+  width: 100%; /* Full-width button */
+  border-radius: 8px;
 }
 
 .btn-primary:hover {
   background-color: #d40813;
-  opacity: 0.9;
 }
 
 .btn-primary[disabled] {
@@ -92,7 +113,19 @@
   opacity: 0.5;
 }
 
-/* Additional styling for modal body elements */
-.modal-body .mb-3 > div {
-  margin-bottom: 12px; /* Spacing between radio buttons */
+/* Add spacing between radio buttons */
+.modal-body .form-check {
+  margin-bottom: 10px;
+}
+
+/* Smooth interaction for disabled submit button */
+.btn-primary[data-disabled="true"] {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Fine-tune modal close button alignment */
+.modal-header .close {
+  margin-left: auto;
+  padding: 0;
 }

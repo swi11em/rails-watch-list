@@ -13,10 +13,9 @@
 }
 
 .sidebar .title {
-  font-size: 1.5rem;
+  font-size: 1.0rem;
   color: #ffffff;
-  font-weight: bold;
-  margin-bottom: 1rem;
+  font-weight: 500;
 }
 
 .sidebar hr {
@@ -29,22 +28,26 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  width: 100%; /* Nav prend toute la largeur de la sidebar */
 }
 
 .sidebar .nav-item {
-  width: 100%;
-  margin-bottom: 0.5rem;
+  width: 100%; /* Chaque item prend toute la largeur */
+  margin-bottom: 12px;
 }
 
 .sidebar .nav-link {
   display: flex;
   align-items: center;
-  color: #cfcfcf;
-  padding: 10px;
+  gap: 10px;
+  background-color: #292929;
   border-radius: 8px;
+  padding: 10px 15px; /* Ajout de padding interne */
   text-decoration: none;
-  font-size: 1.1rem;
-  transition: background-color 0.2s, color 0.2s;
+  color: #cfcfcf;
+  transition: all 0.3s ease-in-out;
+  width: 100%; /* Chaque lien remplit l'item */
+  box-sizing: border-box; /* Inclut le padding dans la largeur */
 }
 
 .sidebar .nav-link:hover,
@@ -53,9 +56,25 @@
   color: #ffffff;
 }
 
+.sidebar .nav-link img,
+.sidebar .nav-link .cld-responsive {
+  border-radius: 4px;
+  object-fit: cover;
+  height: 40px;
+  width: 40px;
+  flex-shrink: 0;
+}
+
+.sidebar .nav-link span {
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: inherit;
+  text-align: left;
+}
 
 .sidebar .btn-primary {
-  width: 100%;
+  width: 100%; /* Bouton prend toute la largeur */
   border-radius: 8px;
   background-color: #e50914;
   color: #ffffff;
@@ -67,7 +86,6 @@
 .sidebar .btn-primary:hover {
   background-color: #d40813;
 }
-
 
 .sidebar .dropdown {
   margin-top: auto;

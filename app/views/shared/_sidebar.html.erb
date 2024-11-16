@@ -18,10 +18,17 @@
         <button class="btn btn-primary">Create new list</button>
       <% end %>
     </li>
+    <hr>
+    <li><p>Your WatchLists</p></li>
     <% lists.each do |list| %>
       <li class="nav-item">
-        <%= link_to list_path(list), class: "nav-link text-white" do %>
-          <%= list.name %>
+        <%= link_to list_path(list), class: "nav-link" do %>
+          <% if list.photo.attached? %>
+            <%= cl_image_tag list.photo.key, height: 40, width: 40, crop: :fill %>
+          <% else %>
+            <%= image_tag "logo.png", alt: "tadam", height: 40, width: 40 %>
+          <% end %>
+          <span><%= list.name %></span>
         <% end %>
       </li>
     <% end %>

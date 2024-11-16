@@ -32,6 +32,7 @@ gem "simple_form"
 gem "sassc-rails"
 gem 'uri', '~> 0.10.0'
 gem "dotenv-rails"
+gem "cloudinary"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
