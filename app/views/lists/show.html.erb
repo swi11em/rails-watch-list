@@ -1,19 +1,21 @@
-<div class="d-flex">
+<div class="d-flex ">
   <%= render 'shared/sidebar', lists: @lists %>
   <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <h1>Retrieve your watchlist</h1>
+    <div class="movie-header" style="background-image: url('<%= cl_image_path @list.photo.key%>'); background-size: cover; height: 60vh; background-position: center;">
+    <div class="overlay"></div>
+      <div class="movie-info">
+          <%= link_to request.referer || lists_path, class: "btn-back" do %>
+            <i class="fas fa-arrow-left "></i>
+          <% end %>
+          <h1 class="movie-title"><%= @list.name %></h1>
+          <div class="movie-actions">
+              <%= link_to "Delete My List", "#", class: "btn btn-secondary" %>
+          </div>
       </div>
-    </div>
-
-    <div class="row">
-      <div class="col">
+      <div class="movie-thumbnail">
+        <img src="<%= cl_image_path @list.photo.key%>" alt="<%= @list.name %>">
       </div>
-    </div>
-<div class="map" style="background-image: url('https://plus.unsplash.com/premium_photo-1682125771198-f7cbed7cb868?q=80&w=2920&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); height: 400px; background-size: cover;"></div>
-<div class="margin-top-negative p-5">
-<h1><%= @list.name %></h1>
+  </div>
   <div class="row">
     <% @list.bookmarks.each do |bookmark| %>
       <div class="col-md-4 mb-4">
@@ -33,4 +35,6 @@
       </div>
     <% end %>
   </div>
+
+</div>
 </div>
